@@ -89,7 +89,7 @@
 
 	<edge type="EXECUTOR">
 		<source invoketype="instance"
-				subsignature="java.util.concurrent.ScheduledFuture 	scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)"/>
+				subsignature="java.util.concurrent.ScheduledFuture scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)"/>
 		<targets>
 			<direct subsignature="void run()" target-position="argument"
 					index="0"/>
