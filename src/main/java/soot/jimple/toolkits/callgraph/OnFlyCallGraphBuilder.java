@@ -160,6 +160,8 @@ public class OnFlyCallGraphBuilder {
   protected final NumberedString sigForName;
 
   protected final RefType clRunnable = RefType.v("java.lang.Runnable");
+  protected final RefType clCallable = RefType.v("java.util.concurrent.Callable");
+  protected final RefType clForkJoin = RefType.v("java.util.concurrent.ForkJoinTask");
   protected final RefType clAsyncTask = RefType.v("android.os.AsyncTask");
   protected final RefType clHandler = RefType.v("android.os.Handler");
 
@@ -652,7 +654,11 @@ public class OnFlyCallGraphBuilder {
       return !fh.canStoreType(type, clRunnable);
     } else if (k == Kind.EXECUTOR) {
       return !fh.canStoreType(type, clRunnable);
-    } else if (k == Kind.ASYNCTASK) {
+    } else if (k == Kind.CALLABLEEXECUTOR){
+      return !fh.canStoreType(type, clCallable);
+    }else if(k == Kind.FORKJOINEXECUTOR){
+      return !fh.canStoreType(type, clForkJoin);
+    }else if (k == Kind.ASYNCTASK) {
       return !fh.canStoreType(type, clAsyncTask);
     } else if (k == Kind.HANDLER) {
       return !fh.canStoreType(type, clHandler);

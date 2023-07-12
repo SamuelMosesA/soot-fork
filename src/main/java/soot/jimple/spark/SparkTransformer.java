@@ -144,6 +144,7 @@ public class SparkTransformer extends SceneTransformer {
     // Dump pag
     PAGDumper dumper = null;
     if (opts.dump_pag() || opts.dump_solution()) {
+      System.out.println("PAG is dumped in dir "+output_dir);
       dumper = new PAGDumper(pag, output_dir);
     }
     if (opts.dump_pag()) {
@@ -175,6 +176,7 @@ public class SparkTransformer extends SceneTransformer {
     }
 
     if (opts.dump_answer()) {
+      System.out.println("Spark answer dumped to "+output_dir);
       new ReachingTypeDumper(pag, output_dir).dump();
     }
     if (opts.dump_solution()) {

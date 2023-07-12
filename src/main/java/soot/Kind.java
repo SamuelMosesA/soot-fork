@@ -64,6 +64,8 @@ public final class Kind implements Numberable {
    * Implicit call to java.lang.Runnable.run() due to Executor.execute() call.
    */
   public static final Kind EXECUTOR = new Kind("EXECUTOR");
+  public static final Kind CALLABLEEXECUTOR = new Kind("CALLABLEEXECUTOR");
+  public static final Kind FORKJOINEXECUTOR = new Kind("FORKJOINEXECUTOR");
   /**
    * Implicit call to AsyncTask.doInBackground() due to AsyncTask.execute() call.
    */

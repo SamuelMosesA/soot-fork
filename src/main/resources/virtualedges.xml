@@ -49,7 +49,7 @@
 		</targets>
 	</edge>
 
-	<edge type="EXECUTOR">
+	<edge type="CALLABLEEXECUTOR">
 		<source invoketype="instance"
 				subsignature="java.util.concurrent.Future submit(java.util.concurrent.Callable)"/>
 		<targets>
@@ -58,7 +58,26 @@
 		</targets>
 	</edge>
 
-	<edge type="EXECUTOR">
+	<edge type="FORKJOINEXECUTOR">
+		<source invoketype="instance"
+				subsignature="java.lang.Object invoke(java.util.concurrent.ForkJoinTask)"/>
+		<targets>
+			<direct subsignature="void compute()" target-position="argument"
+					index="0" />
+		</targets>
+	</edge>
+
+	<edge type="FORKJOINEXECUTOR">
+		<source invoketype="instance"
+				subsignature="java.lang.Object invoke(java.util.concurrent.ForkJoinTask)"/>
+		<targets>
+			<direct subsignature="java.lang.Object compute()" target-position="argument"
+					index="0" />
+		</targets>
+	</edge>
+
+
+	<edge type="CALLABLEEXECUTOR">
 		<source invoketype="instance"
 				subsignature="java.util.concurrent.ScheduledFuture schedule(java.util.concurrent.Callable,long,java.util.concurrent.TimeUnit)"/>
 		<targets>
@@ -95,6 +114,7 @@
 					index="0"/>
 		</targets>
 	</edge>
+
 
 	<!--
 	These function calls must be handled later. Current infra does not handle them
